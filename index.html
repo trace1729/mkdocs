@@ -57,7 +57,11 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#insert">/insert</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#del">/del</a>
+    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pdate">/pdate</a>
     </li>
     </ul>
                 </li>
@@ -99,6 +103,8 @@ Route::get('/getMem', [InfoController::class, 'getMemByName']);
 Route::get('/getEvent', [InfoController::class, 'getEventByTitle']);
 Route::get('/getDept', [InfoController::class, 'getDepartmentByName']);
 Route::get('/insert', [InfoController::class, 'insertOper']);
+Route::get('/del', [InfoController::class, 'delOper']);
+Route::get('/update', [InfoController::class, 'updateOper']);
 </code></pre>
 <h3 id="sql-status-code">sql status code</h3>
 <ul>
@@ -133,11 +139,24 @@ Route::get('/insert', [InfoController::class, 'insertOper']);
 <h3 id="insert"><code>/insert</code></h3>
 <p>插入数据</p>
 <ul>
-<li>type = { 活动 | 社员 | 类别 | 部门} </li>
+<li>type = { 活动 | 社员 | 类别 | 部门}</li>
 <li><code>社员</code> - key = {type, name, password, faculty, class, gender, aboutme, department} <strong>完成</strong></li>
 <li><code>部门</code> - key = {type, time, name, minister_id, club} <strong>完成</strong></li>
 <li><code>类别</code> - key = {type, name} <strong>完成</strong></li>
-<li><code>活动</code> - key = {type, title, generic, content, 附件不要了, publisher_id, time, status}</li>
+<li><code>活动</code> - key = {type, title, generic, content, 附件不要了, publisher_id, time, status} <strong>完成</strong></li>
+</ul>
+<h3 id="del"><code>/del</code></h3>
+<p>删除数据</p>
+<ul>
+<li>type = { 活动 | 社员 | 类别 | 部门 | 附件 | 社团 } </li>
+<li>key = {type, id}</li>
+<li>return value {error:错误信息, status: 状态码，正常为0，异常时返回sql错误代码, affected_rows：返回删除所影响的行数}</li>
+</ul>
+<h2 id="pdate"><code>/pdate</code></h2>
+<p>更新数据</p>
+<ul>
+<li>type = {活动 | 社员 | 类别 | 部门 | 附件 | 社团 }</li>
+<li>key = </li>
 </ul>
               
             </div>
@@ -186,5 +205,5 @@ Route::get('/insert', [InfoController::class, 'insertOper']);
 
 <!--
 MkDocs version : 1.3.1
-Build Date UTC : 2022-09-07 10:49:00.895663+00:00
+Build Date UTC : 2022-09-08 09:35:38.206075+00:00
 -->
