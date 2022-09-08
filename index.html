@@ -61,7 +61,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#pdate">/pdate</a>
+    <li class="toctree-l2"><a class="reference internal" href="#update">/update</a>
     </li>
     </ul>
                 </li>
@@ -140,23 +140,28 @@ Route::get('/update', [InfoController::class, 'updateOper']);
 <p>插入数据</p>
 <ul>
 <li>type = { 活动 | 社员 | 类别 | 部门}</li>
-<li><code>社员</code> - key = {type, name, password, faculty, class, gender, aboutme, department} <strong>完成</strong></li>
-<li><code>部门</code> - key = {type, time, name, minister_id, club} <strong>完成</strong></li>
-<li><code>类别</code> - key = {type, name} <strong>完成</strong></li>
-<li><code>活动</code> - key = {type, title, generic, content, 附件不要了, publisher_id, time, status} <strong>完成</strong></li>
+<li><code>社员</code> - key = {type, 姓名，密码，学院，班级，性别，简介，部门} <strong>完成</strong></li>
+<li><code>部门</code> - key = {type, time, 名称, 部长编号, 所属社团} <strong>完成</strong></li>
+<li><code>类别</code> - key = {type, 名称} <strong>完成</strong></li>
+<li><code>活动</code> - key = {type, 标题, 类别, 内容, 发布者编号, time, 状态} <strong>完成</strong></li>
 </ul>
 <h3 id="del"><code>/del</code></h3>
 <p>删除数据</p>
 <ul>
 <li>type = { 活动 | 社员 | 类别 | 部门 | 附件 | 社团 } </li>
-<li>key = {type, id}</li>
+<li>key = {type, 编号}</li>
 <li>return value {error:错误信息, status: 状态码，正常为0，异常时返回sql错误代码, affected_rows：返回删除所影响的行数}</li>
 </ul>
-<h2 id="pdate"><code>/pdate</code></h2>
+<h2 id="update"><code>/update</code></h2>
 <p>更新数据</p>
 <ul>
 <li>type = {活动 | 社员 | 类别 | 部门 | 附件 | 社团 }</li>
-<li>key = </li>
+<li><code>社员</code> key = {姓名，密码，学院，班级，性别，简介，部门编号,社员编号}</li>
+<li><code>活动</code> key = {活动编号，标题，类别编号，内容，附件编号，发布者，发布时间，状态}</li>
+<li><code>社团</code> key = {社团编号，名称，简介，成立时间，社长编号}</li>
+<li><code>部门</code> key = {部门编号，名称，简介，社长编号，所属社团}</li>
+<li><code>类别</code> key = {类别编号，名称}</li>
+<li><code>附件</code> key = {附件编号，内容，时间，添加人}</li>
 </ul>
               
             </div>
@@ -205,5 +210,5 @@ Route::get('/update', [InfoController::class, 'updateOper']);
 
 <!--
 MkDocs version : 1.3.1
-Build Date UTC : 2022-09-08 09:35:38.206075+00:00
+Build Date UTC : 2022-09-08 13:25:07.788713+00:00
 -->
